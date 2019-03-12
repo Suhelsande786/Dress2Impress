@@ -234,9 +234,9 @@ public class ManagementController {
 				ModelAndView mv = new ModelAndView("page");
 				mv.addObject("title", "Manage Supplier");
 				mv.addObject("userClickManageSupplier", true);
-
-				/*List<User> list=userDAO.listByRole("EMPLOYEE");
-				mv.addObject("list",list);*/
+				
+				/*List<User> list=userDAO.listByRole("SUPPLIER");
+				mv.addObject("list1",list);*/
 				
 				User nuser = new User();
 				// assuming that the user is ADMIN
@@ -276,6 +276,7 @@ public class ManagementController {
 				mv.addObject("userClickManageSupplier", true);
 				// fetch the employee from database
 				User user = userDAO.get(id);
+
 				// set the employee fetch from the database
 				mv.addObject("user", user);
 

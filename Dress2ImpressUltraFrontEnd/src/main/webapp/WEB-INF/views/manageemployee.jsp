@@ -60,7 +60,8 @@
 						</div>
 
 						<div class="form-group row">
-							<label class="control-label col-md-3"><b>Date Of Birth:</b></label>
+							<label class="control-label col-md-3"><b>Date Of
+									Birth:</b></label>
 							<div class="col-8">
 								<sf:input type="date" path="dob" id="dob" class="form-control"
 									required="true" placeholder="Select Date" />
@@ -79,7 +80,8 @@
 						</div>
 
 						<div class="form-group row">
-							<label class="control-label col-md-3"><b>Date Of Joining:</b></label>
+							<label class="control-label col-md-3"><b>Date Of
+									Joining:</b></label>
 							<div class="col-8">
 								<sf:input type="date" path="doj" id="doj" class="form-control"
 									required="true" placeholder="Select Joining Date" />
@@ -90,7 +92,7 @@
 						<div class="form-group row">
 							<label class="control-label col-md-3"><b>Salary:</b></label>
 							<div class="col-8">
-								<sf:input type="number" path="salary" id="salary"
+								<sf:input type="number" path="salary" id="salary" min="1"
 									required="true" class="form-control" placeholder="Enter Salary" />
 								<sf:errors path="salary" cssClass="help-block" element="em" />
 							</div>
@@ -183,13 +185,11 @@
 		</div>
 	</div>
 </div>
-				   <%
+				<%
 						List<User> list = (List<User>) request.getAttribute("list");
 						StringBuffer sb = new StringBuffer();
-						for (int i = 0; i < list.size(); i++)
-						{
-							if (sb.length() > 0) 
-							{
+						for (int i = 0; i < list.size(); i++) {
+							if (sb.length() > 0) {
 								sb.append(",");
 							}
 							sb.append('"').append(list.get(i).getEmail()).append('"');
@@ -202,7 +202,8 @@
 			{
 			if(val == elist[i])
 				{
-				document.getElementById("errspan").innerHTML="Email Already Exist!!";
+				/* document.getElementById("errspan").innerHTML="Email Already Exist!!"; */
+				alert("Email Already Exist!!");
 				 document.getElementById("email").value="";
 				 
 				}
@@ -212,28 +213,26 @@
 	</script>
 	
 	
-				   <%
+				<%
 						List<User> list1 = (List<User>) request.getAttribute("list");
 						StringBuffer sb1 = new StringBuffer();
-						for (int i = 0; i < list.size(); i++) 
-						{
-							if (sb.length() > 0) 
-							{
+						for (int i = 0; i < list.size(); i++) {
+							if (sb.length() > 0) {
 								sb.append(",");
 							}
 							sb.append('"').append(list.get(i).getContactNumber()).append('"');
 						}
 					%>
 	<script type="text/javascript">
-	function myFunction1(val)
-	{ 
+	function myFunction1(val){ 
 		var elist=[<%= sb.toString()%>];
 		for(i=0;i<elist.length;i++)
 			{
 			if(val == elist[i])
 				{
-				document.getElementById("errspan1").innerHTML="Contact Number Already Exist!!";
-				 document.getElementById("contactNumber").value="";
+				/* document.getElementById("errspan1").innerHTML="Contact Number Already Exist!!"; */
+				alert("Contact Number Already Exist!!"); 
+				document.getElementById("contactNumber").value="";
 				 
 				}
 			}
